@@ -15,58 +15,53 @@
 int     ft_printf(const char *str, ...)
 {
     va_list ap;
-    va_start(ap, str);
     int i;
+    int count;
 
+    va_start(ap, str);
     i = 0;
-    while (str[i]);
+    count = 0;
+    while (str[i])
     {
         if (str[i] != '%')
-            ft_putstr(str);
-        else 
-            ft_format(str, ap);
+        {
+            ft_putchar(str[i]);
+            count++;
+        }
+        else
+        {
+            i++;
+            count += ft_format(str[i], ap);
+        }
         i++;
     }
     va_end(ap);
-    return (str);
+    return (count);
 }
 
-/*int ft_printf(const char *format, ...)
+int main()
 {
-    va_list ap;
-    va_start(ap, format);
-    int i;
+	char	*s;
 
-    i = 0;
-    while(format[i])
-    {
-        if (format[i] == '%')
-        {
-            if (format[i + 1] == 'c')
-            {
-                va_arg(ap, char);
-                ft_putchar();
-                i++;
-            }
-            else if (format[i + 1] == 's')
-            {
-                va_arg(ap, char);
-                ft_putstr();
-                i++;
-            }
-            else if (format[i + 1] == 'p')
-            {
-                
-            }
-            else if (format[i + 1] == 'd')
-            {
+	s = "s";
+    printf("Function prinntf :\n");
+	printf("pour un c : %c\n", 67);
+	printf("pour un s : %s\n", s);
+	//printf("pour un p : %p\n", s);
+	printf("pour un d : %d\n", 123);
+	printf("pour un u : %u\n", -5);
+	printf("pour un x : %x\n", 123);
+	printf("pour un x : %X\n", 123);
+	printf("pour un i : %i\n", 123);
 
-            }
-            else if (format[i + 1] == '%')
-            {
-                ft_putchar("%");
-                i++;
-            }
-        }
-    }
-}*/
+    ft_printf("My_function ft_printf :\n");
+    ft_printf("pour un c : %c\n", 67);
+	ft_printf("pour un s : %s\n", s);
+	//ft_printf("pour un p : %p\n", s);
+	ft_printf("pour un d : %d\n", 123);
+	ft_printf("pour un u : %u\n", -5);
+	ft_printf("pour un x : %x\n", 123);
+	ft_printf("pour un x : %X\n", 123);
+	ft_printf("pour un i : %i\n", 123);
+	return (0);
+}

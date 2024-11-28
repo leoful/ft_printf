@@ -2,7 +2,27 @@
 
 int main()
 {
-    void *salut = "salut";
+	char	*s;
 
-    printf("Hello je m'appelle %s, j'ai %d, avec %i de %c et pourant je suis un %p quans je %x et %X jador les 100 %%", "leo - paul", 12, 1, 'c', salut, 4, 5);
+	s = "s";
+    printf("Function prinntf :\n");
+	printf("pour un c : %c\n", 67);
+	printf("pour un s : %s\n", s);
+	//printf("pour un p : %p\n", s);
+	printf("pour un d : %d\n", 123);
+	printf("pour un u : %u\n", -5);
+	printf("pour un x : %x\n", 123);
+	printf("pour un x : %X\n", 123);
+	printf("pour un i : %i\n", 123);
+
+    ft_printf("My_function ft_printf :\n");
+    ft_printf("pour un c : %c\n", 67);
+	ft_printf("pour un s : %s\n", s);
+	//ft_printf("pour un p : %p\n", s);
+	ft_printf("pour un d : %d\n", 123);
+	ft_printf("pour un u : %u\n", -5);
+	ft_printf("pour un x : %x\n", 123);
+	ft_printf("pour un x : %X\n", 123);
+	ft_printf("pour un i : %i\n", 123);
+	return (0);
 }
