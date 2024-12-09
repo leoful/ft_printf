@@ -1,54 +1,25 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_printf_utils.c                                  :+:      :+:    :+:   */
+/*   ft_print_u.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: lbard <lbard@student.42nice.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/11/28 15:54:17 by lbard             #+#    #+#             */
-/*   Updated: 2024/12/05 16:28:12 by lbard            ###   ########.fr       */
+/*   Created: 2024/12/03 15:04:39 by lbard             #+#    #+#             */
+/*   Updated: 2024/12/06 21:36:17 by lbard            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
 
-void	ft_putchar(char c)
-{
-	write(1, &c, 1);
-}
-
-void	ft_putstr(char *str)
+static int	ft_nbrlen(unsigned int nb)
 {
 	int	i;
 
 	i = 0;
-	while (str[i])
+	if (nb == 0)
 	{
-		i++;
-	}
-	write(1, str, i);
-}
-
-int	ft_strlen(char *str)
-{
-	int	i;
-
-	i = 0;
-	while (str[i])
-	{
-		i++;
-	}
-	return (i);
-}
-
-static int	ft_nbrlen(int nb)
-{
-	int	i;
-
-	i = 0;
-	if (nb <= 0)
-	{
-		i = 1;
+		return (1);
 	}
 	while (nb != 0)
 	{
@@ -58,30 +29,43 @@ static int	ft_nbrlen(int nb)
 	return (i);
 }
 
-char	*ft_itoa(int nb)
+static char	*ft_itoa_unsigned(unsigned int nb)
 {
-	int			i;
-	char		*str;
-	long int	num;
+	int		i;
+	char	*str;
 
-	num = nb;
 	i = ft_nbrlen(nb);
-	str = malloc(i + 1);
+	str = malloc((i + 1) * sizeof(char));
+	if (!str)
+	{
+		return (NULL);
+	}
 	if (str == NULL)
 		return (NULL);
 	str[i] = '\0';
-	if (num == 0)
-		str[0] = '0';
-	if (num < 0)
+	if (nb == 0)
 	{
-		str[0] = '-';
-		num = -num;
+		str[0] = '\0';
 	}
-	while (num > 0)
+	while (nb > 0)
 	{
 		i--;
-		str[i] = (num % 10) + '0';
-		num /= 10;
+		str[i] = (nb % 10) + '0';
+		nb /= 10;
 	}
 	return (str);
+}
+
+unsigned int	ft_format_u(int nb)
+{
+	unsigned int	unsigned_nb;
+	char			*str;
+	int				len;
+
+	unsigned_nb = (unsigned int)nb;
+	str = ft_itoa_unsigned(unsigned_nb);
+	ft_putstr(str);
+	len = ft_strlen(str);
+	free(str);
+	return (len);
 }
