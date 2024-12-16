@@ -6,13 +6,13 @@
 /*   By: lbard <lbard@student.42nice.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/03 15:00:32 by lbard             #+#    #+#             */
-/*   Updated: 2024/12/15 22:32:57 by lbard            ###   ########.fr       */
+/*   Updated: 2024/12/16 19:07:01 by lbard            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
 
-static int	ft_countnbr_base(int nb, int base)
+static int	ft_countnbr_base(unsigned int nb, int base)
 {
 	int	i;
 
@@ -34,14 +34,12 @@ static char	*ft_itoa_base(unsigned int nb, int base, char MAJ_or_min)
 	int		stash;
 
 	i = ft_countnbr_base(nb, base);
-	if (i <= 0)
-		return (NULL);
 	str = malloc(i + 1);
 	if (!str)
 		return (NULL);
 	str[i] = '\0';
 	if (nb == 0)
-		str[0] = 0;
+		str[0] = '0';
 	while (nb > 0)
 	{
 		i--;

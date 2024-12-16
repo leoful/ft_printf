@@ -6,7 +6,7 @@
 /*   By: lbard <lbard@student.42nice.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/15 21:51:42 by lbard             #+#    #+#             */
-/*   Updated: 2024/12/15 21:51:42 by lbard            ###   ########.fr       */
+/*   Updated: 2024/12/16 19:06:59 by lbard            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,13 +14,13 @@
 
 int	ft_print_s(char *str)
 {
-	int count;
+	int	count;
 
 	count = 0;
 	if (!str)
 	{
-		ft_putstr("(nil)");
-		count = 5;
+		ft_putstr("(null)");
+		count = 6;
 		return (count);
 	}
 	ft_putstr(str);

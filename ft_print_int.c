@@ -6,7 +6,7 @@
 /*   By: lbard <lbard@student.42nice.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/15 21:58:37 by lbard             #+#    #+#             */
-/*   Updated: 2024/12/15 21:58:37 by lbard            ###   ########.fr       */
+/*   Updated: 2024/12/16 19:06:58 by lbard            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -59,8 +59,8 @@ static char	*ft_itoa(int nb)
 
 int	ft_print_int(int nb)
 {
-	char *str;
-	int count;
+	char	*str;
+	int		count;
 
 	count = 0;
 	str = ft_itoa(nb);
