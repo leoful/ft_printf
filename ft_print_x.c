@@ -6,7 +6,7 @@
 /*   By: lbard <lbard@student.42nice.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/03 15:00:32 by lbard             #+#    #+#             */
-/*   Updated: 2024/12/03 15:00:32 by lbard            ###   ########.fr       */
+/*   Updated: 2024/12/15 22:32:57 by lbard            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,12 +34,14 @@ static char	*ft_itoa_base(unsigned int nb, int base, char MAJ_or_min)
 	int		stash;
 
 	i = ft_countnbr_base(nb, base);
+	if (i <= 0)
+		return (NULL);
 	str = malloc(i + 1);
 	if (!str)
-	{
 		return (NULL);
-	}
 	str[i] = '\0';
+	if (nb == 0)
+		str[0] = 0;
 	while (nb > 0)
 	{
 		i--;
@@ -66,6 +68,12 @@ int	ft_format_x(char str, va_list ap)
 		number_str = ft_itoa_base(num, 16, 'a');
 	else if (str == 'X')
 		number_str = ft_itoa_base(num, 16, 'A');
+	if (!number_str)
+	{
+		ft_putstr("(nil)");
+		free(number_str);
+		return (5);
+	}
 	ft_putstr(number_str);
 	len = ft_strlen(number_str);
 	free(number_str);

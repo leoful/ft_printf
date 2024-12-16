@@ -6,7 +6,7 @@
 /*   By: lbard <lbard@student.42nice.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/15 19:22:10 by lbard             #+#    #+#             */
-/*   Updated: 2024/11/15 19:22:10 by lbard            ###   ########.fr       */
+/*   Updated: 2024/12/15 22:04:46 by lbard            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,8 +24,9 @@ int				ft_strlen(char *str);
 void			ft_putchar(char c);
 void			ft_putstr(char *str);
 int				ft_format_x(char str, va_list ap);
-unsigned int	ft_format_u(int nb);
-char			*ft_itoa(int n);
+unsigned int	ft_format_u(unsigned int nb);
 int				ft_print_p(void *ptr);
+int				ft_print_s(char *str);
+int				ft_print_int(int nb);
 
 #endif

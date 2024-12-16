@@ -29,15 +29,19 @@ int	main(void)
 }*/
 int	main(void)
 {
-	ft_printf("My_function ft_printf :\n");
-	ft_printf(" %p\n ", -1);
-	ft_printf(" %p\n ", 1);
-	ft_printf(" %p\n ", 15);
-	ft_printf(" %p\n ", 16);
-	ft_printf(" %p\n ", 17);
-	ft_printf(" %p %p\n ", LONG_MIN, LONG_MAX);
-	ft_printf(" %p %p\n ", INT_MIN, INT_MAX);
-	ft_printf(" %p %p\n ", ULONG_MAX, -ULONG_MAX);
+	printf(" %p %p\n ", 0, 0);
 	ft_printf(" %p %p\n ", 0, 0);
-	ft_printf("%u\n", LONG_MIN);
 }
+
+/*int main()
+{
+	printf(" %u ", 0);
+	printf(" %lu ", LONG_MIN);
+	printf(" %u %u %lu %lu %lu %u %u\n", INT_MAX, INT_MIN, LONG_MAX, LONG_MIN,
+		ULONG_MAX, 0, -42);
+
+	ft_printf(" %u ", 0);
+	ft_printf(" %u ", LONG_MIN);
+	ft_printf(" %u %u %u %u %u %u %u\n", INT_MAX, INT_MIN, LONG_MAX, LONG_MIN,
+		ULONG_MAX, 0, -42);
+}*/
